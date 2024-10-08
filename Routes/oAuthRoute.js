@@ -1,46 +1,33 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
 
-const authController = require("../Controllers/oauthControllers");
+const authController = require('../Controllers/oauthControllers');
 
+//route
 // Google OAuth routes
-router.get("/", authController.home);
-router.get("/auth/google", authController.googleAuth);
-router.get(
-  "/auth/google/callback",
-  authController.googleAuthCallback,
-  authController.googleCallbackSuccess
-);
+router.get('/', authController.home);
+router.get('/auth/google', authController.googleAuth);
+router.get('/auth/google/callback', authController.googleAuthCallback, authController.googleCallbackSuccess);
 
 // Facebook OAuth routes
-router.get("/auth/facebook", authController.facebookAuth);
-router.get(
-  "/auth/facebook/callback",
-  authController.facebookAuthCallback,
-  authController.facebookCallbackSuccess
-);
+// router.get('/auth/facebook', authController.facebookAuth);
+// router.get('/auth/facebook/callback', authController.facebookAuthCallback, authController.facebookCallbackSuccess);
 
-// Youtube OAuth routes
-router.get("/auth/youtube", authController.youtubeAuth);
-router.get(
-  "/auth/youtube/callback",
-  authController.youtubeAuthcallback,
-  authController.youtubeCallbackSuccess
-);
+//Twitter OAuth routes
+router.get('/auth/twitter', authController.twitterAuth);
+router.get('/auth/twitter/callback', authController.twitterAuthCallback, authController.twitterCallbackSuccess);
 
-//pinterst routes
-router.get('/auth/pinterest',
-  authController.pinterestAuth
-);
-router.get('/auth/pinterest/callback',
-  authController.pinterestAuthCallback,
-  authController.pinterestCallbackSuccess
-)
+//Instagram OAuth routes
+router.get('/auth/instagram', authController.instagramAuth);
+router.get('/auth/instagram/callback', authController.instagramAuthCallback, authController.instagramCallbackSuccess);
+
+
 // Protected dashboard
-router.get("/dashboard", authController.dashboard);
+router.get('/dashboard', authController.dashboard);
+
 
 // Logout route
-router.get("/logout", authController.logout);
+router.get('/logout', authController.logout);
 
 module.exports = router;
+
