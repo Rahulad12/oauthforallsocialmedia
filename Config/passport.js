@@ -3,7 +3,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const InstagramStrategy = require('passport-instagram').Strategy;
-// const FacebookStrategy = require('passport-facebook').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 require('dotenv').config();
 
 // Passport strategy for Google OAuth
@@ -19,16 +19,16 @@ passport.use(new GoogleStrategy({
 ));
 
 // Facebook OAuth strategy
-// passport.use(new FacebookStrategy({
-//     clientID: process.env.FACEBOOK_CLIENT_ID,
-//     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//     callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-//     profileFields: ['id', 'displayName', 'photos', 'email']  // Request necessary fields
-//   },
-//     (accessToken, refreshToken, profile, done) => {
-//       return done(null, profile); // Handle Facebook user profile logic
-//     }
-//   ));
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+    profileFields: ['id', 'displayName', 'photos', 'email']  // Request necessary fields
+  },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile); // Handle Facebook user profile logic
+    }
+  ));
 
 
 //Twitter OAuth strategy
