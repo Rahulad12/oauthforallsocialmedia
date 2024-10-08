@@ -52,6 +52,10 @@ CALLBACK_URL=http://localhost:3000/auth/google/callback
 FACEBOOK_CLIENT_ID=your-facebook-client-id
 FACEBOOK_CLIENT_SECRET=your-facebook-client-secret
 FACEBOOK_CALLBACK_URL=http://localhost:3000/auth/facebook/callback
+
+PINTEREST_CLIENT_ID=pinterest-client-id
+PINTEREST_CLIENT_SECRET=pinterest-client-secret
+PINTEREST_CALLBACK_URL=http://localhost:3000/auth/pinterest/callback
   </code></pre>
 
   <li>Start the server:</li>
